@@ -27,11 +27,28 @@ class NameProcessor:
 
         df['Trend'] = df['Share25'] / df['Share20']
 
-        print(df.head(50))
+        df['Is_Trendy'] = df['Trend'] > 1.25
 
+        df['Name_Length'] = df['Name'].apply(lambda x: 'Short' if len(x) <= 5 else 'Long')
+
+        top30_threshold = df['Count25'].nlargest(30).min()
+
+        def categorize(row):
+            if row['Count25'] >= top30_threshold:
+                return 'Popular'
+            elif row['Count25'] < 20:
+                return 'Unique'
+            else:
+                return 'Common'
+
+        df['Popularity'] = df.apply(categorize, axis=1)
+
+        return df
 
 if __name__ == '__main__':
     processor = NameProcessor()
-    processor.process_names()
+    women = processor.process_names('F')
+
+    print(women)
 
 
