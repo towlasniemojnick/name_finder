@@ -1,0 +1,1 @@
+This is a small app, that collects names from dane.gov.pl, and allows user to search for name of their choice.
