@@ -30,3 +30,12 @@ $$Unique = Count 2025 < 50 $$
 Name is considered **Popular**, if it reaches the top 30 names in 2025.
 
 Otherwise, name is considered **Common**
+
+## How to run
+1. **Environment**
+    ```bash
+   pip install -r requirements.txt 
+
+2. **Grab the data**: run `src/processor.py`.
+
+3. **Have fun with finder**: `run src/main.py`.
