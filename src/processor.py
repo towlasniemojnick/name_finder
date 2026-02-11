@@ -36,7 +36,7 @@ class NameProcessor:
         def categorize(row):
             if row['Count25'] >= top30_threshold:
                 return 'Popular'
-            elif row['Count25'] < 20:
+            elif row['Count25'] < 50:
                 return 'Unique'
             else:
                 return 'Common'
