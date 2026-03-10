@@ -45,10 +45,20 @@ class NameProcessor:
 
         return df
 
+    def check_name(self, name, gender = 'F'):
+        df_names = self.process_names(gender)
+        result = df_names[df_names['Name'].str.upper() == name.upper()]
+
+        return result
+
 if __name__ == '__main__':
     processor = NameProcessor()
     women = processor.process_names('F')
 
     print(women)
+
+    name = processor.check_name('Maja','F')
+
+    print(name)
 
 
